@@ -7,12 +7,14 @@ def sayi_al(mesaj):
     while True:
         giris = input(mesaj).strip()
         if giris == "":
-            print("Boş bırakma, bir sayı gir!")
+            os.system("clear")
+            print("\nBoş bırakma, bir sayı gir!")
             continue
         try:
             return int(giris)
         except ValueError:
-            print("Geçerli bir tam sayı girmelisin!")
+            os.system("clear")
+            print("\nGeçerli bir tam sayı girmelisin!")
             
 #Dukkan
 
@@ -151,7 +153,7 @@ def savas(gladyatör,boss):
             
        if boss_hamlesi=="saldır":
              alınan=boss["hasar"]//2 if savundum else boss["hasar"]
-             gladyatör["can"]-=alınan_hasa
+             gladyatör["can"]-=alınan_hasar
              print(f"{boss['isim']} SALDIRDI ve {alınan} vurdu")
              print(f"Kalan canınız: {gladyatör ['can']}") 
              
@@ -178,14 +180,48 @@ while True:
  os.system("clear")
 
  if secim==1:
-    savas(gladyatör,void)
+    if gladyatör["hasar"]<=10 or gladyatör["can"]<=10:
+        print("\nBu boss icin yeteri kadar gucunuz yok")
+        input("\nYeniden denemek için enter'a basiniz")
+        dukkan()
+        
+    else:        
+     savas(gladyatör,void)
+    
  elif secim==2:
-    savas(gladyatör,eternal)
+    if gladyatör ["hasar"]<=50 or gladyatör["can"]<=50:
+        print("\nBu boss icin yeteri kadar gucunuz yok ")
+        input("\nYeniden denemek icin enter'a basiniz")
+        dukkan()
+        
+    else:    
+     savas(gladyatör,eternal)
+    
  elif secim==3:
-    savas(gladyatör,light)
+      if gladyatör ["hasar"]<=150 or gladyatör["can"]<=150:
+        print("\nBu boss icin yeteri kadar gucunuz yok ")
+        input("\nYeniden denemek icin enter'a basiniz")
+        dukkan()
+        
+      else:
+       savas(gladyatör,light)
+    
  elif secim==4:
-    savas(gladyatör,darkness)
+      if gladyatör ["hasar"]<=300 or gladyatör["can"]<=300:
+        print("\nBu boss icin yeteri kadar gucunuz yok ")
+        input("\nYeniden Denemek icin enter'a basiniz")
+        dukkan()
+        
+      else:
+       savas(gladyatör,darkness)
+    
  elif secim==5:
-    savas(gladyatör,dragon)
+      if gladyatör ["hasar"]<=500 or gladyatör["can"]<=500:
+        print("\nBu boss icin yeteri kadar gucunuz yok ")
+        input("\nYeniden denemek icin enter'a basiniz")
+        dukkan()
+        
+      else:   
+       savas(gladyatör,dragon)
  else:
     print("Geçersiz Giriş")
